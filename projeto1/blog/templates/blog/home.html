@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nosso Blog!</title>
+</head>
+<body>
+  Olá Mundo! <br>
+  {% for post in posts  %}
+  <div>
+    <h2>Título: {{post.titulo}}</h2>
+    <p>Autor: {{post.autor}}</p>
+    <p>{{post.conteudo|linebreaks}}</p>
+
+
+  </div>
+  {% endfor %}
+</body>
+</html>

@@ -7,6 +7,7 @@ def post_list(request):
     
     return render(request, 'blog/home.html', {'posts' : posts})
 
+
 def post_detalhe(request, post_id):
     post = Post.objects.get(pk=post_id)
 

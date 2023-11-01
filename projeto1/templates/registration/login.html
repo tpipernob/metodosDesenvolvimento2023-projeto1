@@ -1,0 +1,49 @@
+{% extends "blog/base.html" %}
+
+{% block content %}
+
+<div class="container">
+  {% if form.errors %}
+    <div class="alert alert-danger" role="alert">
+        Sua senha ou nome de usuário estão incorretos. Tente novamente.
+    </div>    
+  {% endif %}
+  
+  {% if next %}
+    {% if user.is_authenticated %}
+        <div class="alert alert-danger" role="alert">
+            Sua conta não tem acesso a esta página. Para prosseguir, por favor faça login com uma conta que tenha acesso.
+        </div>
+    {% else %}
+        <div class="alert alert-danger" role="alert">
+            Por favor, faça o login.
+        </div>
+    {% endif %}
+  {% endif %}    
+  
+    <form method="post" action="{% url 'login' %}">
+        {% csrf_token %}
+        <table class="table">
+            <tr>
+                <td class="text-right">{{ form.username.label_tag }}</td>
+                <td>{{ form.username }}</td>
+            </tr>
+            <tr>
+                <td class="text-right">{{ form.password.label_tag }}</td>
+                <td>{{ form.password }}</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input type="submit" value="login" />
+                    <input type="hidden" name="next" value="{{ next }}" />
+                </td>
+            </tr>
+        </table>
+        
+    </form>
+  </div>
+  <br>
+  
+</div>
+{% endblock %}

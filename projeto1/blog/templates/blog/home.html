@@ -12,7 +12,7 @@
   <div class="card">
       <div class="card-body">
         <h5 class="card-title">{{ post.titulo }}</h5>
-        <h6 class="card-subtitle mb-2 text-muted">{{ post.data }} por {{ post.autor.first_name }}</h6>
+        <h6 class="card-subtitle mb-2 text-muted">{{ post.data }} por {{ post.autor }}</h6>
         <p class="card-text">{{ post.conteudo|safe|truncatechars:100 }}</p>
         <a href="{% url 'post-detalhe' post.pk %}" class="card-link">Leia mais</a>              
       </div>

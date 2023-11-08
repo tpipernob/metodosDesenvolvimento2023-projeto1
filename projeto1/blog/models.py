@@ -13,5 +13,9 @@ class Post(models.Model):
     def __str__(self) -> str:
         return self.titulo
     
+    def get_absolute_url(self):
+        return u'/post/%d' % self.id
+
+    
     class Meta:
         ordering = ['-data']

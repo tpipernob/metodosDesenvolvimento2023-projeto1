@@ -11,8 +11,10 @@
   <div class="card">
       <div class="card-body">
         <h5 class="card-title">{{ post.titulo }}</h5>
-        <h6 class="card-subtitle mb-2 text-muted">{{ post.data }} por {{ post.autor.first_name }}</h6>
-        <p class="card-text">{{ post.conteudo|safe }}</p>                     
+        <h6 class="card-subtitle mb-2 text-muted">{{ post.data }} por {{ post.autor }}</h6>
+        <p class="card-text">{{ post.conteudo|safe }}</p>   
+        <a class="btn btn-sm btn-warning" href="{% url 'post-edit' post.pk %}">Editar</a>   
+        <a class="btn btn-sm btn-danger" href="{% url 'post-delete' post.pk %}">Excluir</a>                   
       </div>
   </div>  
 </div>
